@@ -6,6 +6,8 @@ gem 'pg' # postgresql
 
 gem 'psych' # yaml parser
 
+gem 'rubocop', '>= 1.0', '< 2.0' # code analyzer Rubocop
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
