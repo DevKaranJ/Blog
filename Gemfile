@@ -71,3 +71,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+# Run against this stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 6.1.0'
+end
