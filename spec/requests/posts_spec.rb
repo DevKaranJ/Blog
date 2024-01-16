@@ -1,4 +1,3 @@
-# spec/requests/post_spec.rb
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
