@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Define resources for users and their posts
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :create]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
