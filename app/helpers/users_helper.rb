@@ -6,5 +6,4 @@ module UsersHelper
   def display_age(user)
     "Age: #{Time.now.year - user.birthdate.year}"
   end
-
 end
