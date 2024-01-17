@@ -1,5 +1,11 @@
 /* Add a CSS reset for basic styling consistency across browsers */
-body, h1, h2, h3, p, ul, li {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
@@ -92,6 +98,7 @@ body {
     margin-bottom: 10px;
   }
 }
+
 a {
   text-decoration: none;
 }
