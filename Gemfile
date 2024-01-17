@@ -10,7 +10,9 @@ gem 'rubocop', '>= 1.0', '< 2.0' # code analyzer Rubocop
 
 gem 'rails-controller-testing' # test controllers
 
-gem 'factory_bot_rails'
+gem 'factory_bot_rails' # test factories
+
+gem 'will_paginate' # pagination
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'

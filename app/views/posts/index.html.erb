@@ -1,4 +1,4 @@
-<<%= stylesheet_link_tag "postindex" %>
+<%= stylesheet_link_tag "postindex" %>
 
 <div class='page'>
   <div class='user'>
@@ -16,12 +16,12 @@
         <h3 class='order'><%= link_to "#{post.title}", user_post_path(post.author, post) %></h3></br>
         <p class='posttext'><%= post.text %></p>
         <p class='comments'>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+        <% post.instance_eval { recent_comments.includes(:user) }.each do |comment| %>
+          <li class='comment-list'><strong><%= comment.user.name %> :</strong> <%= comment.text %></li></br>
+        <% end %>
       </li>
-      <% post.return_recent_comments.includes(:user).each do |comment| %>
-        <li class='comment-list'><strong><%= comment.user.name %> :</strong> <%= comment.text %></li></br>
-      <% end %>
     <% end %>
   </ul>
 </div>
 
-<button type='button' class='button'><%= will_paginate @posts %>Pagination</button>
+<button type='button' class='button'><%= will_paginate @posts %> Pagination</button>
