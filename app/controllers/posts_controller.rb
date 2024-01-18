@@ -30,6 +30,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:text) # Adjust this based on your actual attribute
+    params.require(:post).permit(:text)
   end
 end

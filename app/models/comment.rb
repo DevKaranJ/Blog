@@ -12,4 +12,9 @@ class Comment < ApplicationRecord
   def update_post_comments_counter
     post.update(comments_counter: post.comments.count)
   end
+
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
+
 end

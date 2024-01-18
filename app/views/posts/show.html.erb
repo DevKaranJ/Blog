@@ -23,4 +23,10 @@
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.submit "Like" %>
   <% end %>
+
+  <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post), method: :post) do |form| %>
+    <%= form.text_field :content, placeholder: "Enter your comment here" %>
+    <%= form.submit "Create Comment" %>
+  <% end %>
+
 </div>
