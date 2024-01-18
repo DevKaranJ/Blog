@@ -1,0 +1,92 @@
+/* Add a CSS reset for basic styling consistency across browsers */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Global styles */
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  margin-right: 20px;
+}
+
+.user-photo {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.username {
+  margin-bottom: 5px;
+}
+
+.postlist {
+  list-style: none;
+}
+
+.post {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.order {
+  margin-bottom: 5px;
+}
+
+.comments {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.comment-list {
+  margin-top: 5px;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .page {
+    padding: 10px;
+  }
+
+  .user {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo {
+    margin-bottom: 10px;
+  }
+}

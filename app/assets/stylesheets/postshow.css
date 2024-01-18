@@ -1,0 +1,47 @@
+body {
+  margin: 75px;
+  padding: 20px;
+}
+
+.open-post-flex {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.open-post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.open-post {
+  background-color: rgb(250, 246, 246);
+  padding: 16px;
+  border: 1px solid black;
+  margin-bottom: 16px;
+}
+
+.open-post h3 {
+  margin-bottom: 8px;
+}
+
+.amount {
+  font-size: 14px;
+  color: gray;
+}
+
+.text {
+  margin-top: 16px;
+}
+
+.open-comment {
+  background-color: lightgray;
+  padding: 8px;
+  border: 1px solid black;
+  margin-bottom: 8px;
+}
+
+.open-comment strong {
+  font-weight: bold;
+}
