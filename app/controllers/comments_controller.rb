@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    
+
     # Assign the comment to the current_user
     @comment.user = current_user
 
