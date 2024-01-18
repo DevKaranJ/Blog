@@ -4,19 +4,23 @@
   <div class='open-post'>
     <div class='open-post-header'>
       <h3><%= @post.title %> by <%= @post.author.name %></h3>
-      <p class='amount'>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
+      <p class='amount'>
+        Comments: <%= @post.comments_counter %>,
+        Likes: <%= @post.likes_counter %>,
+        Liked by: <%= @post.likes.map { |like| like.user.name }.join(', ') %>
+      </p>
     </div>
     <p class='text'><%= @post.text %></p>
   </div>
 
   <% @post.comments.includes(:user).each do |comment| %>
-    <div class='open-comment'><strong><%= comment.user.name %> :</strong> <%= comment.text %></div>
+    <div class='open-comment'>
+      <strong><%= comment.user.name %> :</strong> <%= comment.text %>
+    </div>
   <% end %>
 
   <%= form_with(model: Like.new, url: like_user_post_path(@post.author, @post), method: :post) do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.submit "Like" %>
   <% end %>
-
-
 </div>

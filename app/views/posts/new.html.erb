@@ -1,4 +1,5 @@
-<%= form_with(model: Post.new, url: posts_path, method: :post) do |form| %>
+<!-- app/views/posts/new.html.erb -->
+<%= form_with(model: @post, url: user_posts_path(@user), method: :post) do |form| %>
   <%= form.text_field :content, placeholder: "Enter your post here" %>
   <%= form.submit "Create Post" %>
 <% end %>

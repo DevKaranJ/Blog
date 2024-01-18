@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  # Define resources for users and their posts
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :create] do
+    resources :posts, only: [:index, :show, :create, :new] do
       resources :comments, only: [:create]
       member do
         post 'like', to: 'likes#create', as: :like
