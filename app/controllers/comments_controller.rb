@@ -4,11 +4,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
-    if @comment.save
-      redirect_to user_post_path(@post.author, @post), notice: 'Comment created successfully'
-    else
-      # Handle errors
-    end
+    return unless @comment.save
+
+    redirect_to user_post_path(@post.author, @post), notice: 'Comment created successfully'
   end
 
   private
@@ -16,5 +14,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
-
 end

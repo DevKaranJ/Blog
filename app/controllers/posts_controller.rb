@@ -1,6 +1,6 @@
 # app/controllers/posts_controller.rb
 class PostsController < ApplicationController
-  before_action :set_user, only: [:index, :new, :create]
+  before_action :set_user, only: %i[index new create]
 
   def index
     @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 6)

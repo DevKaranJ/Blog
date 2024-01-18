@@ -4,11 +4,9 @@ class LikesController < ApplicationController
     @like = @post.likes.build(like_params)
     @like.user = current_user
 
-    if @like.save
-      redirect_to @post, notice: 'Liked the post!'
-    else
-      # Handle errors
-    end
+    return unless @like.save
+
+    redirect_to @post, notice: 'Liked the post!'
   end
 
   private
