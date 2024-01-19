@@ -14,6 +14,9 @@
     <h3 class='biohead'>Bio</h3></br>
     <p class='biotext'><%= @user.bio %></p>
   </div>
+  <div class='button'>
+  <%= link_to "Create new post", new_user_post_path(user_id: @user.id), class: "create-post-button" %>
+</div>
   <ul class='postlist'>
     <% @user.posts.limit(3).each do |post| %>
       <li class='post'>
