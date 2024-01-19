@@ -25,4 +25,10 @@
   </ul>
 
   <%= link_to "See all posts", user_posts_path(@user), class: 'button back' if @user.posts.count > 3 %>
-</div>
+
+  <%= form_with(model: @post, url: user_posts_path(@user), method: :post) do |form| %>
+    <%= form.text_area :text, placeholder: "Enter your post here" %>
+    <%= form.submit "Create Post" %>
+  <% end %>
+  
+  </div>
