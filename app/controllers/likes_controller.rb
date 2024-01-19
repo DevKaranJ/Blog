@@ -12,6 +12,6 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.require(:like).permit(:user_id)
+    params.permit(:user_id)
   end
 end
