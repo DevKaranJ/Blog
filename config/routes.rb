@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :create, :new] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:new, :create]
+      resources :likes, only: [:create]
       member do
         post 'like', to: 'likes#create', as: :like
       end

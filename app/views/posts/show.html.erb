@@ -1,5 +1,19 @@
 <%= stylesheet_link_tag "postshow" %>
 
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<div>
+      <%= form_with model: @like,url: user_post_likes_path(post_id: @post.id, user_id: @post.author_id), data: { turbo: false } do |form|%>
+          <%= form.submit 'Like post', class: 'submit' %>
+        <%end%>
+ </div>
+
+ <button class="see-all-post">
+    <%= link_to "Create new comment", new_user_post_comment_path(post_id: @post.id, user_id: @post.author_id) %>
+</button>
+
 <div class='open-post-flex'>
   <div class='open-post'>
     <div class='open-post-header'>
@@ -17,16 +31,6 @@
     <div class='open-comment'>
       <strong><%= comment.user.name %> :</strong> <%= comment.text %>
     </div>
-  <% end %>
-
-  <%= form_with(model: Like.new, url: like_user_post_path(@post.author, @post), method: :post) do |form| %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.submit "Like" %>
-  <% end %>
-
-  <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post), method: :post) do |form| %>
-    <%= form.text_field :content, placeholder: "Enter your comment here" %>
-    <%= form.submit "Create Comment" %>
   <% end %>
 
 </div>
