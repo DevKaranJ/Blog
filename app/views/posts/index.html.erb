@@ -8,7 +8,11 @@
     <div class='userinfo'>
       <h2 class='username'><%= @user.name %></h2>
       <h4 class='postnumber'>Number of posts: <%= @user.posts.count %></h4>
-    </div>
+      </div>
+
+    <button class="see-all-post">
+    <%= link_to "Create new post", new_user_post_path, class: "create-post-button" %>
+</button>
   </div>
   <ul class='postlist'>
     <% @posts.each do |post| %>
@@ -22,6 +26,5 @@
       </li>
     <% end %>
   </ul>
+  <button type='button' class='button'><%= will_paginate @posts %> Pagination</button>
 </div>
-
-<button type='button' class='button'><%= will_paginate @posts %> Pagination</button>

@@ -2,13 +2,34 @@
 
 <div class='open-post-flex'>
   <div class='open-post'>
-  <div class='open-post-header'>
-    <h3><%= @post.title %> by <%= @post.author.name %></h3>
-    <p class='amount'>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
+    <div class='open-post-header'>
+      <h3><%= @post.title %> by <%= @post.author.name %></h3>
+      <p class='amount'>
+        Comments: <%= @post.comments_counter %>,
+        Likes: <%= @post.likes_counter %>,
+        Liked by: <%= @post.likes.map { |like| like.user.name }.join(', ') %>
+      </p>
     </div>
     <p class='text'><%= @post.text %></p>
   </div>
+
   <% @post.comments.includes(:user).each do |comment| %>
-    <div class='open-comment'><strong><%= comment.user.name %> :</strong> <%= comment.text %></div>
+    <div class='open-comment'>
+      <strong><%= comment.user.name %> :</strong> <%= comment.text %>
+    </div>
   <% end %>
-</div>
+
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+
+  <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post), method: :post) do |form| %>
+    <%= form.text_field :text, placeholder: "Enter your comment here" %>
+    <%= form.submit "Create Comment" %>
+  <% end %>
+
+  <div>
+    <%= form_with(model: @like, url: user_post_likes_path(@post.author, @post), method: :post, local: true) do |form| %>
+      <%= form.submit 'Like post', class: 'submit' %>
+    <% end %>
+  </div>
