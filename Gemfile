@@ -14,7 +14,7 @@ gem 'factory_bot_rails' # test factories
 
 gem 'will_paginate' # pagination
 
-gem "bullet" # N+1 queries
+gem 'bullet' # N+1 queries
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
