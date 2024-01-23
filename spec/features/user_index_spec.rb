@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User Index Page' do
-  let!(:user1) { create(:user, name: 'John', posts_counter: 5) }
-  let!(:user2) { create(:user, name: 'Jane', posts_counter: 3) }
+  let!(:user1) { create(:user, name: 'John', posts_counter: 0) }
+  let!(:user2) { create(:user, name: 'Jane', posts_counter: 0) }
 
-  scenario 'I can see the username, profile picture' do
+  scenario 'I can see the username, profile picture, and post count' do
     visit users_path
 
     # Check if the usernames are visible
@@ -16,6 +16,10 @@ RSpec.feature 'User Index Page' do
     # Check if the profile pictures are visible
     expect(page).to have_css("img[src*='#{user1.photo.url}']")
     expect(page).to have_css("img[src*='#{user2.photo.url}']")
+
+    # Check if the post counters are visible
+    expect(page).to have_content("Number of posts: #{user1.posts.count}")
+    expect(page).to have_content("Number of posts: #{user2.posts.count}")
   end
 
   scenario 'When I click on a user, I am redirected to that user\'s show page' do
