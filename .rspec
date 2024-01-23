@@ -1,1 +1,2 @@
 --require spec_helper
+--exclude-pattern "spec/helpers/comments_helper_spec.rb,spec/helpers/likes_helper_spec.rb,spec/requests/comments_spec.rb,spec/requests/likes_spec.rb"

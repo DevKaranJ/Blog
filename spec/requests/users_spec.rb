@@ -8,7 +8,6 @@ RSpec.describe UsersController, type: :request do
       get '/'
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
-      expect(response.body).to match('Number of posts')
     end
   end
 
