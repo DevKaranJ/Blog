@@ -8,15 +8,15 @@ RSpec.feature 'User post index page', type: :feature do
   end
 
   scenario 'I can see the user\'s profile picture' do
-    expect(page).to have_css("img.user-photo", count: 1)
+    expect(page).to have_css('img.user-photo', count: 1)
   end
 
   scenario 'I can see the user\'s name' do
-    expect(page).to have_css("h2.username", text: @user.name, count: 1)
+    expect(page).to have_css('h2.username', text: @user.name, count: 1)
   end
 
   scenario 'I can see the number of posts the user has' do
-    expect(page).to have_css("h4.postnumber", text: "Number of posts: 5", count: 1)
+    expect(page).to have_css('h4.postnumber', text: 'Number of posts: 5', count: 1)
   end
 
   scenario 'I can see some details of each post' do

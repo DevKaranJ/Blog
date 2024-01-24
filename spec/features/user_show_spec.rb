@@ -4,9 +4,16 @@ require 'rails_helper'
 
 RSpec.feature 'User Show Page' do
   let!(:user) { create(:user, name: 'John', bio: 'Sample Bio') }
-  let!(:post1) { create(:post, author: user, title: 'Post 1', text: 'Lorem ipsum', comments_counter: 2, likes_counter: 5) }
-  let!(:post2) { create(:post, author: user, title: 'Post 2', text: 'Dolor sit amet', comments_counter: 1, likes_counter: 8) }
-  let!(:post3) { create(:post, author: user, title: 'Post 3', text: 'Consectetur adipiscing elit', comments_counter: 0, likes_counter: 3) }
+  let!(:post1) do
+    create(:post, author: user, title: 'Post 1', text: 'Lorem ipsum', comments_counter: 2, likes_counter: 5)
+  end
+  let!(:post2) do
+    create(:post, author: user, title: 'Post 2', text: 'Dolor sit amet', comments_counter: 1, likes_counter: 8)
+  end
+  let!(:post3) do
+    create(:post, author: user, title: 'Post 3', text: 'Consectetur adipiscing elit', comments_counter: 0,
+                  likes_counter: 3)
+  end
 
   scenario 'I can see user details and posts on the user show page' do
     visit user_path(user)
@@ -47,14 +54,14 @@ RSpec.feature 'User Show Page' do
     visit user_path(user)
 
     # Check if the button to view all posts is visible
-  if user.recent_posts.count > 3
-    expect(page).to have_link('See all posts', href: user_posts_path(user))
+    if user.recent_posts.count > 3
+      expect(page).to have_link('See all posts', href: user_posts_path(user))
 
-    # Click on the "See all posts" button
-    click_link 'See all posts'
+      # Click on the "See all posts" button
+      click_link 'See all posts'
 
-    # Check if redirected to the user's post index page
-    expect(current_path).to eq(user_posts_path(user))
-  end
+      # Check if redirected to the user's post index page
+      expect(current_path).to eq(user_posts_path(user))
+    end
   end
 end
